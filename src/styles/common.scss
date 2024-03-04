@@ -1,0 +1,57 @@
+canvas,
+video,
+img {
+  width: 100%;
+  height: 100vh;
+}
+
+.rel {
+  position: relative;
+}
+
+.abs {
+  position: absolute;
+
+  &.clip {
+    top: 0;
+    left: 0;
+  }
+
+  &.center {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+
+.flex {
+  display: flex;
+
+  &.col {
+    flex-direction: column;
+  }
+
+  &.center {
+    justify-content: center;
+    align-items: center;
+  }
+
+  &.wrap {
+    flex-wrap: wrap;
+  }
+
+  &.between {
+    justify-content: space-between;
+  }
+}
+
+.full-screen {
+  width: 100%;
+  height: 100vh;
+}
+
+.full {
+  width: 100%;
+  height: 100%;
+}

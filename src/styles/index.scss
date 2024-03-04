@@ -1,0 +1,11 @@
+@import url(./common.scss);
+@import url(./normalize.scss);
+
+@font-face {
+	font-family: Pixel;
+	src: url(/font/CozetteVector.ttf);
+}
+
+body {
+	font-family: Pixel;
+}
