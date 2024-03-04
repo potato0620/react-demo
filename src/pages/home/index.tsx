@@ -1,8 +1,8 @@
 import './index.scss';
-export default function Test() {
+export default function Home() {
 	const flexItem = new Array(10).fill(undefined).map((_, index) => {
 		return (
-			<div className="item" key={index}>
+			<div className="item text-3xl font-bold underline" key={index}>
 				{index}
 			</div>
 		);
