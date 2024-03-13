@@ -36,8 +36,8 @@ function getItem(
 
 const items: MenuItem[] = [
 	getItem('SignaturePad', 'signaturePad'),
-	getItem('OtherDemo1', 'otherDemo1'),
-	getItem('OtherDemo2', 'otherDemo2'),
+	getItem('webGL', 'webgl'),
+	getItem('PageClipPath', 'pageClipPath'),
 	getItem('OtherDemo3', 'otherDemo3'),
 	getItem('OtherDemo4', 'otherDemo4'),
 ];

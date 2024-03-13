@@ -5,9 +5,9 @@ import Home from '@/pages/home';
 const ErrorPage = React.lazy(() => import('@/pages/404'));
 // import PageSignaturePad from '@/pages/demo/SignaturePad';
 
-const PageSignaturePad = await React.lazy(
-	() => import('@/pages/demo/SignaturePad')
-);
+const PageSignaturePad = React.lazy(() => import('@/pages/demo/SignaturePad'));
+const PageWebGL = React.lazy(() => import('@/pages/demo/webgl'));
+const PageClipPath = React.lazy(() => import('@/pages/demo/clip-path'));
 
 const router = createBrowserRouter([
 	{
@@ -36,6 +36,22 @@ const router = createBrowserRouter([
 						element: (
 							<React.Suspense fallback={'loading'}>
 								<PageSignaturePad />
+							</React.Suspense>
+						),
+					},
+					{
+						path: 'demo/webgl',
+						element: (
+							<React.Suspense fallback={'loading'}>
+								<PageWebGL />
+							</React.Suspense>
+						),
+					},
+					{
+						path: 'demo/pageClipPath',
+						element: (
+							<React.Suspense fallback={'loading'}>
+								<PageClipPath />
 							</React.Suspense>
 						),
 					},

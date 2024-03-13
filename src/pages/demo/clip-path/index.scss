@@ -1,0 +1,9 @@
+.clipPath {
+	clip-path: inset(0);
+	transition: all 0.5s ease-in-out;
+
+	&:hover {
+		clip-path: inset(0% 0% 0% 100%);
+		// background-color: tomato;
+	}
+}
