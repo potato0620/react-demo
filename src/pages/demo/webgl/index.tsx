@@ -1,10 +1,18 @@
+import { useRef } from "react";
+import { onMounted } from '@/hooks/utils'
+
 const webGL: React.FC = () => {
+	const caEl = useRef<HTMLCanvasElement>(null)
+	onMounted(() => {
+		console.log(caEl.current)
+		return () => {
+			console.log('unmount')
+		}
+	})
 	return (
-		<>
 			<div>
-				<canvas id="drawCanvas" className="w-500 h-500"></canvas>
+				<canvas id='webgl' ref={caEl}  className="w-full h-full"></canvas>
 			</div>
-		</>
 	);
 };
 

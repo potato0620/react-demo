@@ -4,7 +4,7 @@ import { Layout, Menu } from 'antd';
 import type { MenuProps } from 'antd';
 
 const { Sider, Content } = Layout;
-import { useNavigate, Outlet } from 'react-router-dom';
+import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -38,21 +38,28 @@ const items: MenuItem[] = [
 	getItem('SignaturePad', 'signaturePad'),
 	getItem('webGL', 'webgl'),
 	getItem('PageClipPath', 'pageClipPath'),
-	getItem('OtherDemo3', 'otherDemo3'),
-	getItem('OtherDemo4', 'otherDemo4'),
+	// getItem('OtherDemo3', 'otherDemo3'),
+	// getItem('OtherDemo4', 'otherDemo4'),
 ];
 
 export default function Home() {
 	const navigate = useNavigate();
+	const { pathname } = useLocation();  /* 获取当前路由 */
+	const currKey = pathname.split('/')[2]; 
+	console.log(currKey,'currKey')
+	const defaultKey = [currKey];
 
 	return (
 		<Layout style={layoutStyle}>
 			<Sider style={siderStyle}>
+				<div className='p-24px bg-sky-100 font-800'>
+					Potao demos:
+				</div>
 				<Menu
 					mode="inline"
 					style={{}}
 					items={items}
-					defaultSelectedKeys={[]}
+					defaultSelectedKeys={defaultKey}
 					onSelect={({ key }) => {
 						navigate(`/demo/${key}`);
 					}}

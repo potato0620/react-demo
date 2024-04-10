@@ -19,6 +19,7 @@ const router = createBrowserRouter([
 				<ErrorPage />
 			</React.Suspense>
 		),
+	
 		children: [
 			{
 				errorElement: (
@@ -29,7 +30,7 @@ const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <div>choose demo</div>,
+						element: <div>please choose a  demo</div>,
 					},
 					{
 						path: 'demo/signaturePad',
