@@ -1,17 +1,21 @@
 import { useRef } from "react";
 import { onMounted } from '@/hooks/utils'
+import { initThree } from './three'
+
+import './index.scss'
 
 const webGL: React.FC = () => {
-	const caEl = useRef<HTMLCanvasElement>(null)
+	const canvasEl = useRef<HTMLCanvasElement>(null)
 	onMounted(() => {
-		console.log(caEl.current)
+		initThree(canvasEl.current as HTMLCanvasElement)
+
 		return () => {
 			console.log('unmount')
 		}
 	})
 	return (
-			<div>
-				<canvas id='webgl' ref={caEl}  className="w-full h-full"></canvas>
+			<div onLoad={() => { console.log('load') }}>
+			<canvas id='webgl' ref={canvasEl} className="w-full h-full" width={800} height={800}></canvas>
 			</div>
 	);
 };

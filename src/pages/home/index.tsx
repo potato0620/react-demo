@@ -52,7 +52,7 @@ export default function Home() {
 	return (
 		<Layout style={layoutStyle}>
 			<Sider style={siderStyle}>
-				<div className='p-24px bg-sky-100 font-800'>
+				<div className='p-24px bg-pink-100 font-800'>
 					Potao demos:
 				</div>
 				<Menu
