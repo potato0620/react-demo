@@ -14,4 +14,8 @@ export default defineConfig({
 	server: {
 		port: 9999,
 	},
+	build: {
+		outDir: 'dist',
+		target:'es2015'
+	},
 });
