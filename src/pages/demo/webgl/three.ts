@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import gsap from 'gsap';
+import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
+// import gsap from 'gsap';
 
 const initThree = (canvas: HTMLCanvasElement) => {
 	const size = {
@@ -97,7 +98,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
 	render.setSize(window.innerWidth, window.innerHeight);
 
 	render.render(scene, camera);
-	const clock = new THREE.Clock();
+	// const clock = new THREE.Clock();
 
 	// gsap.to(group.position, { duration: 1, delay: 1, x: 2, y: 5 });
 
@@ -112,11 +113,14 @@ const initThree = (canvas: HTMLCanvasElement) => {
 		// console.log(e.clientX, e.clientY);
 	});
 
-	const tick = () => {
-		const elapsedTime = clock.getElapsedTime();
+	const controls = new OrbitControls(camera, canvas);
+	controls.enableDamping = true;
 
-		group.rotation.x = elapsedTime;
-		group.rotation.y = elapsedTime;
+	const tick = () => {
+		// const elapsedTime = clock.getElapsedTime();
+
+		// group.rotation.x = elapsedTime;
+		// group.rotation.y = elapsedTime;
 
 		// group.position.x = Math.cos(elapsedTime) * 2
 		// group.position.y = Math.sin(elapsedTime) * 2
@@ -124,8 +128,14 @@ const initThree = (canvas: HTMLCanvasElement) => {
 		// camera.position.y = Math.sin(elapsedTime) * 2;
 		// camera.position.z = elapsedTime;
 		// camera.lookAt(group.position);
-		camera.position.x = cursor.x;
-		camera.position.y = cursor.y;
+		// camera.position.x = cursor.x * 5;
+		// camera.position.y = cursor.y * 5;
+		// camera.position.x = Math.sin(cursor.x * Math.PI * 2);
+		// camera.position.z = Math.cos(cursor.x * Math.PI * 2);
+		// camera.position.y = cursor.y;
+
+		// camera.lookAt(group.position);
+		controls.update();
 
 		render.render(scene, camera);
 
