@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { onMounted } from '@/hooks/utils'
+import { onMounted, getRandom } from '@/hooks/utils'
 import { initThree } from './three'
 
 import './index.scss'
@@ -8,6 +8,7 @@ const webGL: React.FC = () => {
 	const canvasEl = useRef<HTMLCanvasElement>(null)
 	onMounted(() => {
 		initThree(canvasEl.current as HTMLCanvasElement)
+		console.log(getRandom(99,100))
 
 		return () => {
 			console.log('unmount')
