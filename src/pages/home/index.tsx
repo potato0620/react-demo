@@ -38,6 +38,7 @@ const items: MenuItem[] = [
 	getItem('SignaturePad', 'signaturePad'),
 	getItem('webGL', 'webgl'),
 	getItem('PageClipPath', 'pageClipPath'),
+	getItem('PageThreeFont', 'pageThreeFont'),
 	// getItem('OtherDemo3', 'otherDemo3'),
 	// getItem('OtherDemo4', 'otherDemo4'),
 ];

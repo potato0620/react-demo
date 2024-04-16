@@ -1,11 +1,10 @@
 import { useRef } from "react";
 import { onMounted } from '@/hooks/utils'
 import { initThree } from './three'
+ 
 
-import './index.scss'
-
-const webGL: React.FC = () => {
-	const canvasEl = useRef<HTMLCanvasElement>(null)
+const ThreeFont: React.FC = () => {
+  const canvasEl = useRef<HTMLCanvasElement>(null)
 	onMounted(() => {
 		initThree(canvasEl.current as HTMLCanvasElement)
 		return () => {
@@ -19,4 +18,4 @@ const webGL: React.FC = () => {
 	);
 };
 
-export default webGL;
+export default ThreeFont;

@@ -8,6 +8,7 @@ const ErrorPage = React.lazy(() => import('@/pages/404'));
 const PageSignaturePad = React.lazy(() => import('@/pages/demo/SignaturePad'));
 const PageWebGL = React.lazy(() => import('@/pages/demo/webgl'));
 const PageClipPath = React.lazy(() => import('@/pages/demo/clip-path'));
+const PageThreeFont = React.lazy(() => import('@/pages/demo/threeFont'));
 
 const router = createBrowserRouter([
 	{
@@ -53,6 +54,14 @@ const router = createBrowserRouter([
 						element: (
 							<React.Suspense fallback={'loading'}>
 								<PageClipPath />
+							</React.Suspense>
+						),
+					},
+					{
+						path: 'demo/pageThreeFont',
+						element: (
+							<React.Suspense fallback={'loading'}>
+								<PageThreeFont />
 							</React.Suspense>
 						),
 					},
