@@ -3,6 +3,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import * as dat from 'lil-gui';
 import gsap from 'gsap';
 
+export type Dat =  dat.GUI;
+
 const initThree = (canvas: HTMLCanvasElement) => {
 	// const img = new Image()
 	/* 多个图片加载 */
@@ -236,6 +238,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
 
 	gui.add(parameters, 'spin')
 	gui.add(parameters, 'fullScreen')
+	// gui.hide()
 
 
 	// const geometry = new THREE.BoxGeometry(1, 1, 1);
@@ -367,6 +370,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
 	return {
 		camera,
 		renderer,
+		gui
 	};
 };
 

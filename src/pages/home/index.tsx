@@ -39,8 +39,8 @@ const items: MenuItem[] = [
 	getItem('webGL', 'webgl'),
 	getItem('PageClipPath', 'pageClipPath'),
 	getItem('PageThreeFont', 'pageThreeFont'),
-	// getItem('OtherDemo3', 'otherDemo3'),
-	// getItem('OtherDemo4', 'otherDemo4'),
+	getItem('ThreeLight', 'threeLight'),
+	getItem('ThreeShadow', 'threeShadow'),
 ];
 
 export default function Home() {

@@ -3,7 +3,7 @@ import { useEffect } from "react"
 
 /**
  * 类似于vue的onMounted
- * @param cb 
+ * @param cb 回调函数
  * Usage: just a example
  * ```
  * const xin = (a,b) => {
@@ -15,9 +15,23 @@ import { useEffect } from "react"
  * 
  * 
  */
-const onMounted = (cb: Function) => {
+const onMounted = (cb: Function, unCb?: Function) => {
 	useEffect(() => {
 		cb()
+		return () => {
+			unCb && unCb()
+		}
+	}, [])
+}
+/**
+ * 类似于vue的 onBeforeUnmount
+ * @param cb 回调函数
+ */
+const onBeforeUnmount = (cb: Function) => {
+	useEffect(() => {
+		return () => {
+			cb() && cb()
+		}
 	}, [])
 }
 
@@ -34,4 +48,5 @@ const getRandom = (min:	number, max: number) => {
 export {
 	onMounted,
 	getRandom,
+	onBeforeUnmount
 }

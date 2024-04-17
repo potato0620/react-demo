@@ -1,16 +1,21 @@
 import { useRef } from "react";
-import { onMounted } from '@/hooks/utils'
+import { onMounted, onBeforeUnmount} from '@/hooks/utils'
 import { initThree } from './three'
-
+import type { Dat } from './three'
 import './index.scss'
+
+
 
 const webGL: React.FC = () => {
 	const canvasEl = useRef<HTMLCanvasElement>(null)
+	let guiel: Dat
+
 	onMounted(() => {
-		initThree(canvasEl.current as HTMLCanvasElement)
-		return () => {
-			console.log('unmount')
-		}
+		const { gui } = initThree(canvasEl.current as HTMLCanvasElement)
+		guiel = gui
+	})
+	onBeforeUnmount(() => {
+		guiel.hide()
 	})
 	return (
 			<div>

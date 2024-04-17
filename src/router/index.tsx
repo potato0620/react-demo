@@ -9,6 +9,8 @@ const PageSignaturePad = React.lazy(() => import('@/pages/demo/SignaturePad'));
 const PageWebGL = React.lazy(() => import('@/pages/demo/webgl'));
 const PageClipPath = React.lazy(() => import('@/pages/demo/clip-path'));
 const PageThreeFont = React.lazy(() => import('@/pages/demo/threeFont'));
+const PageThreeLight = React.lazy(() => import('@/pages/demo/threeLight'));
+const PageThreeShadow = React.lazy(() => import('@/pages/demo/threeShadow'));
 
 const router = createBrowserRouter([
 	{
@@ -62,6 +64,22 @@ const router = createBrowserRouter([
 						element: (
 							<React.Suspense fallback={'loading'}>
 								<PageThreeFont />
+							</React.Suspense>
+						),
+					},
+					{
+						path: 'demo/threeLight',
+						element: (
+							<React.Suspense fallback={'loading'}>
+								<PageThreeLight />
+							</React.Suspense>
+						),
+					},
+					{
+						path: 'demo/threeShadow',
+						element: (
+							<React.Suspense fallback={'loading'}>
+								<PageThreeShadow />
 							</React.Suspense>
 						),
 					},
