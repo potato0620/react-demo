@@ -363,10 +363,12 @@ const initThree = async (el: HTMLCanvasElement) => {
 		window.requestAnimationFrame(tick);
   };
 
-	tick();
+  tick();
+  gui.hide()
 }
 
 
 export {
-  initThree
+  initThree,
+
 }

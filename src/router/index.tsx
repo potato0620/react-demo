@@ -11,6 +11,7 @@ const PageClipPath = React.lazy(() => import('@/pages/demo/clip-path'));
 const PageThreeFont = React.lazy(() => import('@/pages/demo/threeFont'));
 const PageThreeLight = React.lazy(() => import('@/pages/demo/threeLight'));
 const PageThreeShadow = React.lazy(() => import('@/pages/demo/threeShadow'));
+const PageThreeHouse = React.lazy(() => import('@/pages/demo/threeHouse'));
 
 const router = createBrowserRouter([
 	{
@@ -80,6 +81,14 @@ const router = createBrowserRouter([
 						element: (
 							<React.Suspense fallback={'loading'}>
 								<PageThreeShadow />
+							</React.Suspense>
+						),
+					},
+					{
+						path: 'demo/threeHouse',
+						element: (
+							<React.Suspense fallback={'loading'}>
+								<PageThreeHouse />
 							</React.Suspense>
 						),
 					},

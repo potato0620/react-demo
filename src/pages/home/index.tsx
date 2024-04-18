@@ -41,6 +41,7 @@ const items: MenuItem[] = [
 	getItem('PageThreeFont', 'pageThreeFont'),
 	getItem('ThreeLight', 'threeLight'),
 	getItem('ThreeShadow', 'threeShadow'),
+	getItem('ThreddHouse', 'threeHouse'),
 ];
 
 export default function Home() {
