@@ -107,9 +107,9 @@ const initThree = async (el: HTMLCanvasElement) => {
 
   const matcapTexture = new THREE.TextureLoader().load('/public/textures/matcaps/8.png')
 
-  const textGeometry = new TextGeometry('you can move cube of a s d w', {
+  const textGeometry = new TextGeometry('you can move the cube by a s d w', {
     font: font as Font,
-    size: 1.2,
+    size: 1,
     depth: 0.2,
     curveSegments: 12,
     bevelEnabled: true,
