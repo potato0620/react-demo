@@ -28,4 +28,5 @@ const handleLeave = () => {
 	}
 }
 
-document.addEventListener("visibilitychange",handleLeave);
+window.addEventListener("visibilitychange", handleLeave);
+
