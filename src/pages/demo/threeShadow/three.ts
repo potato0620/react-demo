@@ -244,7 +244,7 @@ const initThree = async (el: HTMLCanvasElement) => {
   spotLight.position.set(0, 20, -5)
   spotLight.castShadow = true
   scene.add(spotLight)
-  scene.add(new THREE.SpotLightHelper(spotLight))
+  // scene.add(new THREE.SpotLightHelper(spotLight))
   // console.log(spotLight.shadow, '聚光灯shadow');
   // spotLight.shadow.mapSize.set(1024 * 2, 1024 * 2)
   spotLight.shadow.mapSize.width = 1024 * 2;
