@@ -58,7 +58,7 @@ const initThree = async (el: HTMLCanvasElement) => {
 
 
   // 打开阴影贴图
-  // renderer.shadowMap.enabled = true
+  renderer.shadowMap.enabled = true
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
   //创建几个几何体
@@ -123,6 +123,8 @@ const initThree = async (el: HTMLCanvasElement) => {
 
   const textModel = new THREE.Mesh(textGeometry, new THREE.MeshMatcapMaterial({ matcap: matcapTexture }));
   textModel.castShadow = true
+
+  // textModel.rotation.x = -Math.PI / 1
   textModel.position.y = 6
   
   scene.add(textModel)
@@ -134,7 +136,7 @@ const initThree = async (el: HTMLCanvasElement) => {
   // 创建一个平面
   const plane = new THREE.Mesh(
     new THREE.PlaneGeometry(50, 50),
-    new THREE.MeshStandardMaterial({ side: THREE.DoubleSide})
+    new THREE.MeshStandardMaterial({side: THREE.DoubleSide})
   )
 
   plane.rotateX(Math.PI / 2)
@@ -238,11 +240,11 @@ const initThree = async (el: HTMLCanvasElement) => {
   // directionalLight.shadow.camera.top = 10
 
   // 聚光灯
-  const spotLight = new THREE.SpotLight(new THREE.Color('yellow'), 5, 15, Math.PI * 0.2, 0.25, 1)
-  spotLight.position.set(-5, 5, 5)
+  const spotLight = new THREE.SpotLight(new THREE.Color('gray'), 20, 35, Math.PI * 0.2, 0.25, 1)
+  spotLight.position.set(0, 20, -5)
   spotLight.castShadow = true
-  // scene.add(spotLight)
-  // scene.add(new THREE.SpotLightHelper(spotLight))
+  scene.add(spotLight)
+  scene.add(new THREE.SpotLightHelper(spotLight))
   // console.log(spotLight.shadow, '聚光灯shadow');
   // spotLight.shadow.mapSize.set(1024 * 2, 1024 * 2)
   spotLight.shadow.mapSize.width = 1024 * 2;
@@ -271,15 +273,20 @@ const initThree = async (el: HTMLCanvasElement) => {
   // scene.add(helper);
 
   // 点光源
-  const pointLight = new THREE.PointLight(new THREE.Color('red'), 20)
+  const pointLight = new THREE.PointLight(new THREE.Color('red'), 5)
   // scene.add(new THREE.PointLightHelper(pointLight))
 
-  pointLight.position.set(0, 2, -3) 
+  pointLight.position.set(0, 2, 0) 
   pointLight.castShadow = true
   pointLight.shadow.camera.near = 1
   pointLight.shadow.camera.far = 20
   scene.add(pointLight)
   // scene.add(new THREE.CameraHelper(pointLight.shadow.camera))
+
+  // 半球光
+  const hemisphereLight = new THREE.HemisphereLight(0xff0000, 0x0000ff, 1)
+  // scene.add(hemisphereLight)
+  
 
 
 
