@@ -19,7 +19,7 @@ const webGL: React.FC = () => {
 	})
 	return (
 			<div>
-			<canvas id='webgl' ref={canvasEl} className="w-full h-full" width={800} height={800}></canvas>
+			<canvas id='webgl' ref={canvasEl} className="w-full h-full"></canvas>
 			</div>
 	);
 };

@@ -106,6 +106,7 @@ const initThree = async (el: HTMLCanvasElement) => {
 
 
   const textModel = new THREE.Mesh(textGeometry, textMaterial);
+  
     // Donuts
   const donutGeometry = new THREE.TorusGeometry(0.3, 0.2, 32, 64)
 

@@ -7,13 +7,10 @@ const ThreeFont: React.FC = () => {
   const canvasEl = useRef<HTMLCanvasElement>(null)
 	onMounted(() => {
 		initThree(canvasEl.current as HTMLCanvasElement)
-		return () => {
-			console.log('unmount')
-		}
 	})
 	return (
 			<div>
-			<canvas id='webgl' ref={canvasEl} className="w-full h-full" width={800} height={800}></canvas>
+			<canvas id='webgl' ref={canvasEl} className="w-full h-full"></canvas>
 			</div>
 	);
 };
