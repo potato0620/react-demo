@@ -36,9 +36,9 @@ function getItem(
 
 const items: MenuItem[] = [
 	getItem('SignaturePad', 'signaturePad'),
-	getItem('webGL', 'webgl'),
 	getItem('PageClipPath', 'pageClipPath'),
-	getItem('PageThreeFont', 'pageThreeFont'),
+	getItem('ThreeModel', 'webgl'),
+	getItem('ThreeFont', 'pageThreeFont'),
 	getItem('ThreeLight', 'threeLight'),
 	getItem('ThreeShadow', 'threeShadow'),
 	getItem('ThreddHouse', 'threeHouse'),
@@ -54,7 +54,8 @@ export default function Home() {
 	return (
 		<Layout style={layoutStyle}>
 			<Sider style={siderStyle}>
-				<div className='p-24px bg-pink-100 font-800'>
+				<div className='p-10px bg-pink-100 font-800 inline-flex items-center w-full'>
+					<img src="/public/imgs/dls.jpg" alt="" className='w-50px h-50px rounded-1/2 mr-15px'/>
 					Potao demos:
 				</div>
 				<Menu
