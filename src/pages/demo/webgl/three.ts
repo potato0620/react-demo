@@ -156,7 +156,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
 	/* 创建一个场景 */
 	const scene = new THREE.Scene(); 
 	/* 实例化一个debugui */
-	const gui = new dat.GUI({title:'哈哈哈fuck you'});
+	const gui = new dat.GUI({title:'哈哈哈fuck you',}).close();
 	// scene.position.x =-5
 	/* 创建一个对象 */
 	const group = new THREE.Group(); /* 创建一个组 */
@@ -285,7 +285,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
 	// 	100
 	// );
 
-	camera.position.set(0, 0, 10);
+	camera.position.set(0, 0, 2);
 	// camera.position.x = 1;
 	// camera.position.y = 1;
 

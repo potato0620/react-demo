@@ -1,7 +1,18 @@
+import { useRef } from "react";
+import { onMounted } from '@/hooks/utils'
+import { initThree } from './three'
+ 
+
 const ThreddHouse: React.FC = () => {
-  return (
-    <div>ThreddHouse</div>
-  )
+  const canvasEl = useRef<HTMLCanvasElement>(null)
+	onMounted(() => {
+		initThree(canvasEl.current as HTMLCanvasElement)
+	})
+	return (
+			<div>
+			<canvas id='webgl' ref={canvasEl} className="w-full h-full"></canvas>
+			</div>
+	);
 }
 
 export default ThreddHouse
