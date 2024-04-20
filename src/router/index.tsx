@@ -5,6 +5,7 @@ import Home from '@/pages/home';
 const ErrorPage = React.lazy(() => import('@/pages/404'));
 // import PageSignaturePad from '@/pages/demo/SignaturePad';
 
+const PageTextBg = React.lazy(() => import('@/pages/demo/textBg'));
 const PageSignaturePad = React.lazy(() => import('@/pages/demo/SignaturePad'));
 const PageWebGL = React.lazy(() => import('@/pages/demo/webgl'));
 const PageClipPath = React.lazy(() => import('@/pages/demo/clip-path'));
@@ -34,7 +35,7 @@ const router = createBrowserRouter([
 				children: [
 					{
 						index: true,
-						element: <div>please choose a  demo</div>,
+						element: <PageTextBg/>,
 					},
 					{
 						path: 'demo/signaturePad',

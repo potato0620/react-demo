@@ -1,6 +1,6 @@
 import './index.scss';
 
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, ConfigProvider } from 'antd';
 import type { MenuProps } from 'antd';
 
 const { Sider, Content } = Layout;
@@ -8,16 +8,27 @@ import { useNavigate, Outlet, useLocation } from 'react-router-dom';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
-const contentStyle: React.CSSProperties = {};
+const contentStyle: React.CSSProperties = {
+	// width: '100%',
+	// height: '100%',
+	// overflow: 'hidden'
+};
 
 const layoutStyle: React.CSSProperties = {
 	height: '100%',
 	width: '100%',
+	fontFamily: 'Pixel'
 };
 
 const siderStyle: React.CSSProperties = {
 	background: '#fff',
+	fontFamily: 'Pixel'
 };
+
+const menuStyle: React.CSSProperties = {
+	fontFamily: 'Pixel'
+}
+
 function getItem(
 	label: React.ReactNode,
 	key: React.Key,
@@ -54,19 +65,28 @@ export default function Home() {
 	return (
 		<Layout style={layoutStyle}>
 			<Sider style={siderStyle}>
-				<div className='p-10px bg-pink-100 font-800 inline-flex items-center w-full'>
-					<img src="/public/imgs/dls.jpg" alt="" className='w-50px h-50px rounded-1/2 mr-15px'/>
+				<div id='dls-box' className='p-10px font-800 inline-flex items-center w-full'>
+					<img src="/imgs/dls.jpg" alt="" className='w-50px h-50px rounded-1/2 mr-15px'/>
 					Potao demos:
 				</div>
-				<Menu
-					mode="inline"
-					style={{}}
-					items={items}
-					defaultSelectedKeys={defaultKey}
-					onSelect={({ key }) => {
-						navigate(`/demo/${key}`);
-					}}
-				/>
+				<ConfigProvider theme={{
+					components: {
+						Menu: {
+							itemSelectedBg: '#797979',
+							itemSelectedColor: '#ffffff'
+						}
+					}
+				}}>
+					<Menu
+						mode="inline"
+						style={menuStyle}
+						items={items}
+						defaultSelectedKeys={defaultKey}
+						onSelect={({ key }) => {
+							navigate(`/demo/${key}`);
+						}}
+					/>
+				</ConfigProvider>
 			</Sider>
 			<Content style={contentStyle}>
 				<Outlet></Outlet>

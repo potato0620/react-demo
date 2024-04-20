@@ -1,0 +1,17 @@
+$bg: url('/public/imgs/bgImage.jpg');
+
+.top-wrapper {
+  .mask {
+    background-color: rgba($color: #000000, $alpha: .7);
+    z-index: 0;
+  }
+  .text {
+    font-size: 9vw;
+    z-index: 2;
+    -webkit-text-stroke: 1px #ffffff;
+    color: transparent;
+    background: $bg no-repeat center/cover;
+    background-clip: text;
+  }
+ 
+}

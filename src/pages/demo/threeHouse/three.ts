@@ -149,7 +149,10 @@ const initThree = (canvas: HTMLCanvasElement) => {
   // 灌木丛 
   const bushGeometry = new THREE.SphereGeometry(1, 16, 16)
   const bushMaterial = new THREE.MeshStandardMaterial({
-    color: '#89c854',
+    map: grassColorTexture,
+    aoMap: grassAmbientOcclusionTexture,
+    normalMap: grassNormalTexture,
+    roughnessMap: grassRoughnessTexture
   })
   const bush1 = new THREE.Mesh(bushGeometry, bushMaterial)
   bush1.scale.set(0.5, 0.5, 0.5)
@@ -217,12 +220,14 @@ const initThree = (canvas: HTMLCanvasElement) => {
 
   // 双击全屏
   window.addEventListener('dblclick', () => {
-    if (!document.fullscreenElement) {
-      canvas.requestFullscreen();
-    } else {
-      document.exitFullscreen();
+      if (!document.fullscreenElement) {
+        canvas.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
     }
-})
+  )
+  
   
   const tick = () => {
     render.render(scene, camera)
@@ -234,6 +239,6 @@ const initThree = (canvas: HTMLCanvasElement) => {
   tick()
 }
 
-export  {
+export {
   initThree
 }
