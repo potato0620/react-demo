@@ -1,6 +1,6 @@
 import './index.scss';
 
-import { Layout, Menu, ConfigProvider } from 'antd';
+import { Layout, Menu, ConfigProvider, Button } from 'antd';
 import type { MenuProps } from 'antd';
 
 const { Sider, Content } = Layout;
@@ -22,7 +22,8 @@ const layoutStyle: React.CSSProperties = {
 
 const siderStyle: React.CSSProperties = {
 	background: '#fff',
-	fontFamily: 'Pixel'
+	fontFamily: 'Pixel',
+	transition: 'all .5s ease-in-out'
 };
 
 const menuStyle: React.CSSProperties = {
@@ -64,10 +65,10 @@ export default function Home() {
 
 	return (
 		<Layout style={layoutStyle}>
-			<Sider style={siderStyle}>
-				<div id='dls-box' className='p-10px font-800 inline-flex items-center w-full'>
-					<img src="/imgs/dls.jpg" alt="" className='w-50px h-50px rounded-1/2 mr-15px'/>
-					Potao demos:
+			<Sider style={siderStyle} collapsible collapsedWidth={0}>
+				<div id='dls-box' className='p-10px font-800 inline-flex items-center w-full text-18px'>
+					<img src="/imgs/dls.jpg" alt="" className='w-50px h-50px rounded-1/2 mr-8px'/>
+					Potao demos
 				</div>
 				<ConfigProvider theme={{
 					components: {

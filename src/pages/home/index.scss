@@ -1,4 +1,7 @@
 #dls-box {
-  border-bottom: 1px dashed #797979;
+  border: 2px dashed #797979;
   font-family: Pixel;
+}
+.ant-layout-sider-zero-width-trigger {
+  z-index: 9 !important;
 }
