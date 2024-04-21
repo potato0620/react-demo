@@ -94,7 +94,9 @@ const initThree = (canvas: HTMLCanvasElement) => {
     render.render(scene, camera)
     controler.update()
     window.requestAnimationFrame(tick)
-    particles.rotation.y = elapsedTime * 0.2
+    particles.rotation.y = elapsedTime * 0.4 // 旋转
+    particles.rotation.z = elapsedTime * 0.1 // 旋转
+
     
   }
   
