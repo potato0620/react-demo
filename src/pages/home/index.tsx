@@ -54,13 +54,14 @@ const items: MenuItem[] = [
 	getItem('ThreeLight', 'threeLight'),
 	getItem('ThreeShadow', 'threeShadow'),
 	getItem('ThredHouse', 'threeHouse'),
+	getItem('ThreeParticles', 'threeParticles'),
+
 ];
 
 export default function Home() {
 	const navigate = useNavigate();
 	const { pathname } = useLocation();  /* 获取当前路由 */
 	const currKey = pathname.split('/')[2]; 
-	console.log(currKey,'currKey')
 	const defaultKey = [currKey];
 
 	return (
