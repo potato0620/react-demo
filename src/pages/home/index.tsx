@@ -47,15 +47,42 @@ function getItem(
 }
 
 const items: MenuItem[] = [
-  getItem('SignaturePad', 'signaturePad'),
-  getItem('PageClipPath', 'pageClipPath'),
-  getItem('ThreeModel', 'webgl'),
-  getItem('ThreeFont', 'pageThreeFont'),
-  getItem('ThreeLight', 'threeLight'),
-  getItem('ThreeShadow', 'threeShadow'),
-  getItem('ThredHouse', 'threeHouse'),
-  getItem('ThreeParticles', 'threeParticles'),
-  getItem('FlexLayout', 'flexLayout')
+  {
+    label: 'FlexLayout',
+    key: 'flexLayout'
+  },
+  {
+    label: 'SignaturePad',
+    key: 'signaturePad'
+  },
+  {
+    label: 'PageClipPath',
+    key: 'pageClipPath'
+  },
+  {
+    label: 'ThreeModel',
+    key: 'webgl'
+  },
+  {
+    label: 'ThreeFont',
+    key: 'pageThreeFont'
+  },
+  {
+    label: 'ThreeLight',
+    key: 'threeLight'
+  },
+  {
+    label: 'ThreeShadow',
+    key: 'threeShadow'
+  },
+  {
+    label: 'ThredHouse',
+    key: 'threeHouse'
+  },
+  {
+    label: 'ThreeParticles',
+    key: 'threeParticles'
+  }
 ]
 
 export default function Home() {
