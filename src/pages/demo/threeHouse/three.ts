@@ -1,16 +1,15 @@
 import * as THREE from 'three'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js'
 
-
 const initThree = (canvas: HTMLCanvasElement) => {
   const sizes = {
     width: window.innerWidth,
-    height: window.innerHeight,
+    height: window.innerHeight
   }
   const textureLoader = new THREE.TextureLoader()
   const scene = new THREE.Scene()
   const render = new THREE.WebGLRenderer({
-    canvas: canvas,
+    canvas: canvas
   })
 
   render.shadowMap.enabled = true
@@ -18,30 +17,25 @@ const initThree = (canvas: HTMLCanvasElement) => {
   render.setSize(sizes.width, sizes.height)
   render.setClearColor('#262837')
 
-  const camera = new THREE.PerspectiveCamera(
-    75,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  )
+  const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
   const controler = new OrbitControls(camera, canvas)
 
   camera.position.set(2, 2, 6)
-  
+
   const house = new THREE.Group()
   scene.add(house)
 
   // 灯光
-  const ambientLight = new THREE.AmbientLight('#b9d5ff', .15)
+  const ambientLight = new THREE.AmbientLight('#b9d5ff', 0.15)
   // scene.add(ambientLight)
 
   const spotLight = new THREE.SpotLight('#b9d5ff', 20, 35, Math.PI * 0.2, 0.25, 1)
   // const spotLightHelper = new THREE.SpotLightHelper(spotLight)
   spotLight.castShadow = true
   spotLight.position.set(15, 20, 0)
-  spotLight.target.position.set(0, 0, 0); // 旋转聚光灯
+  spotLight.target.position.set(0, 0, 0) // 旋转聚光灯
   // scene.add(spotLight, spotLight.target)
-  
+
   // scene.add(spotLight)
   // scene.add(spotLightHelper)
 
@@ -52,7 +46,6 @@ const initThree = (canvas: HTMLCanvasElement) => {
   // 加一点雾
   const fog = new THREE.Fog('#262837', 1, 15)
   scene.fog = fog
-
 
   // 地板
   const grassColorTexture = textureLoader.load('/textures/grass/color.jpg')
@@ -71,7 +64,6 @@ const initThree = (canvas: HTMLCanvasElement) => {
   grassRoughnessTexture.repeat.set(5, 5)
   grassRoughnessTexture.wrapS = THREE.RepeatWrapping
   grassRoughnessTexture.wrapT = THREE.RepeatWrapping
-  
 
   const floor = new THREE.Mesh(
     new THREE.PlaneGeometry(30, 30),
@@ -82,7 +74,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
       roughnessMap: grassRoughnessTexture
     })
   )
-  floor.rotation.x = - Math.PI * 0.5
+  floor.rotation.x = -Math.PI * 0.5
   floor.position.y = 0
   floor.receiveShadow = true
   house.add(floor)
@@ -100,7 +92,10 @@ const initThree = (canvas: HTMLCanvasElement) => {
       roughnessMap: bricksRoughnessTexture
     })
   )
-  wall.geometry.setAttribute('uv2', new THREE.Float32BufferAttribute(wall.geometry.attributes.uv.array, 2))
+  wall.geometry.setAttribute(
+    'uv2',
+    new THREE.Float32BufferAttribute(wall.geometry.attributes.uv.array, 2)
+  )
   wall.position.y = 1.25
   wall.castShadow = true
   house.add(wall)
@@ -109,7 +104,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
   const roof = new THREE.Mesh(
     new THREE.ConeGeometry(3.5, 1, 4),
     new THREE.MeshStandardMaterial({
-      color: '#b35f45',
+      color: '#b35f45'
     })
   )
   roof.castShadow = true
@@ -127,7 +122,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
   const doorRoughnessTexture = textureLoader.load('/textures/door/roughness.jpg')
 
   const door = new THREE.Mesh(
-    new THREE.PlaneGeometry(2.2, 2.2, 100,100),
+    new THREE.PlaneGeometry(2.2, 2.2, 100, 100),
     new THREE.MeshStandardMaterial({
       map: doorColorTexture,
       transparent: true,
@@ -140,13 +135,16 @@ const initThree = (canvas: HTMLCanvasElement) => {
       roughnessMap: doorRoughnessTexture
     })
   )
-  door.geometry.setAttribute('uv2', new THREE.Float32BufferAttribute(door.geometry.attributes.uv.array, 2))
+  door.geometry.setAttribute(
+    'uv2',
+    new THREE.Float32BufferAttribute(door.geometry.attributes.uv.array, 2)
+  )
 
   door.position.y = 1
   door.position.z = 2 + 0.01
   house.add(door)
 
-  // 灌木丛 
+  // 灌木丛
   const bushGeometry = new THREE.SphereGeometry(1, 16, 16)
   const bushMaterial = new THREE.MeshStandardMaterial({
     map: grassColorTexture,
@@ -174,23 +172,22 @@ const initThree = (canvas: HTMLCanvasElement) => {
   // 坟墓
   const graves = new THREE.Group()
   const gravesMeterial = new THREE.MeshStandardMaterial({
-    color: '#b2b6b1',
+    color: '#b2b6b1'
   })
   const gravesGeometry = new THREE.BoxGeometry(0.6, 0.8, 0.2)
-  
 
   for (let index = 0; index < 50; index++) {
     const angle = Math.random() * Math.PI * 2 // Random angle
-    const radius = 3 + Math.random() * 6      // Random radius
-    const x = Math.cos(angle) * radius        // Get the x position using cosinus
-    const z = Math.sin(angle) * radius        // Get the z position using sinus
+    const radius = 3 + Math.random() * 6 // Random radius
+    const x = Math.cos(angle) * radius // Get the x position using cosinus
+    const z = Math.sin(angle) * radius // Get the z position using sinus
 
     // Create the mesh
     const grave = new THREE.Mesh(gravesGeometry, gravesMeterial)
     grave.castShadow = true
 
     // Position
-    grave.position.set(x, 0.3, z)                              
+    grave.position.set(x, 0.3, z)
 
     // Rotation
     grave.rotation.z = (Math.random() - 0.5) * 0.4
@@ -201,44 +198,37 @@ const initThree = (canvas: HTMLCanvasElement) => {
   }
 
   scene.add(graves)
-  
 
-  window.addEventListener('resize', () =>{
-      // Update sizes
-      sizes.width = window.innerWidth
-      sizes.height = window.innerHeight
-  
-      // Update camera
-      camera.aspect = sizes.width / sizes.height
-      camera.updateProjectionMatrix()
-  
-      // Update renderer
-      render.setSize(sizes.width, sizes.height)
-      render.setPixelRatio(Math.min(window.devicePixelRatio, 2))
-    }
-  )
+  window.addEventListener('resize', () => {
+    // Update sizes
+    sizes.width = window.innerWidth
+    sizes.height = window.innerHeight
+
+    // Update camera
+    camera.aspect = sizes.width / sizes.height
+    camera.updateProjectionMatrix()
+
+    // Update renderer
+    render.setSize(sizes.width, sizes.height)
+    render.setPixelRatio(Math.min(window.devicePixelRatio, 2))
+  })
 
   // 双击全屏
   window.addEventListener('dblclick', () => {
-      if (!document.fullscreenElement) {
-        canvas.requestFullscreen();
-      } else {
-        document.exitFullscreen();
-      }
+    if (!document.fullscreenElement) {
+      canvas.requestFullscreen()
+    } else {
+      document.exitFullscreen()
     }
-  )
-  
-  
+  })
+
   const tick = () => {
     render.render(scene, camera)
     controler.update()
     window.requestAnimationFrame(tick)
-
   }
-  
+
   tick()
 }
 
-export {
-  initThree
-}
+export { initThree }

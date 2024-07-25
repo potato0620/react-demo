@@ -15,6 +15,7 @@ const PageThreeShadow = React.lazy(() => import('@/pages/demo/threeShadow'))
 const PageThreeHouse = React.lazy(() => import('@/pages/demo/threeHouse'))
 const PageThreeParticles = React.lazy(() => import('@/pages/demo/thressParticles'))
 const PageFlexLayout = React.lazy(() => import('@/pages/demo/flex-layout'))
+const PageReactLearn = React.lazy(() => import('@/pages/demo/react-learn'))
 
 const router = createBrowserRouter([
   {
@@ -108,6 +109,14 @@ const router = createBrowserRouter([
             element: (
               <React.Suspense fallback={'loading'}>
                 <PageFlexLayout />
+              </React.Suspense>
+            )
+          },
+          {
+            path: 'demo/reactLearn',
+            element: (
+              <React.Suspense fallback={'loading'}>
+                <PageReactLearn />
               </React.Suspense>
             )
           }

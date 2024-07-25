@@ -52,6 +52,10 @@ const items: MenuItem[] = [
     key: 'flexLayout'
   },
   {
+    label: 'ReactLearn',
+    key: 'reactLearn'
+  },
+  {
     label: 'SignaturePad',
     key: 'signaturePad'
   },
