@@ -1,10 +1,16 @@
-# 使用官方 Node.js 镜像作为基础镜像
 FROM node:latest 
-WORKDIR /usr/src/app
+
+WORKDIR /app
+
 COPY package.json ./
 COPY . .
-RUN npm install
-RUN npm install serve
-RUN npm run build
+
+
+RUN npm install -g pnpm
+RUN pnpm i
+RUN npm install --global serve
+RUN pnpm run build
+
 EXPOSE 5000
+
 CMD ["npx", "serve", "-s","dist","-p", "5000"]
