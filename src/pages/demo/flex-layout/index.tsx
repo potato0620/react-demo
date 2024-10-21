@@ -24,6 +24,13 @@ const FlexLayout: React.FC = () => {
         <span className='flex-item bg-green-600 w-[100px]'>1</span>
         <h1>inline-flex</h1>
       </div>
+      <div className='w-full h-100px bg-teal-300 flex'>
+        <div className='item flex-[50%] bg-red-200'>
+          <div className='w-900px'></div>
+        </div>
+        <div className='item flex-[50%]  bg-dark-300'></div>
+      </div>
+      <div>添加overflow hidden 即可保持宽度与flex-1 一致</div>
     </>
   )
 }
