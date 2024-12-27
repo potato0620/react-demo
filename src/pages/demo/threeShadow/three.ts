@@ -93,7 +93,7 @@ const initThree = async (el: HTMLCanvasElement) => {
   const font = await new Promise((resolve,reject) => {
     try {
       fontLoader.load(
-        '/public/threeFont/fonts/CozetteVector_Regular.json',
+        '/threeFont/fonts/CozetteVector_Regular.json',
         (font) => {
           console.log('font加载完毕', font);
           resolve(font)
@@ -105,7 +105,7 @@ const initThree = async (el: HTMLCanvasElement) => {
   })
 
 
-  const matcapTexture = new THREE.TextureLoader().load('/public/textures/matcaps/8.png')
+  const matcapTexture = new THREE.TextureLoader().load('/textures/matcaps/8.png')
 
   const textGeometry = new TextGeometry('you can move the cube by a s d w', {
     font: font as Font,
@@ -130,7 +130,7 @@ const initThree = async (el: HTMLCanvasElement) => {
   scene.add(textModel)
 
   // baking shadow
-  const shadow = new THREE.TextureLoader().load('/public/textures/shadow/bakedShadow.jpg')
+  const shadow = new THREE.TextureLoader().load('/textures/shadow/bakedShadow.jpg')
 
 
   // 创建一个平面
@@ -149,7 +149,7 @@ const initThree = async (el: HTMLCanvasElement) => {
     new THREE.MeshBasicMaterial({
       color: 0x000000,
       transparent: true,
-      alphaMap: new THREE.TextureLoader().load('/public/textures/shadow/simpleShadow.jpg')
+      alphaMap: new THREE.TextureLoader().load('/textures/shadow/simpleShadow.jpg')
     })
   )
   shadowPlane.rotation.x = -Math.PI / 2

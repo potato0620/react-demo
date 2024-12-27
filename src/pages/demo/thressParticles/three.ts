@@ -47,7 +47,7 @@ const initThree = (canvas: HTMLCanvasElement) => {
     new THREE.BufferAttribute(color, 3)
   )
 
-  const particlesTexture = textureLoader.load('/public/textures/particles/2.png')
+  const particlesTexture = textureLoader.load('/textures/particles/2.png')
 
   const particlesMaterial = new THREE.PointsMaterial({
     size: 0.1,
@@ -96,7 +96,6 @@ const initThree = (canvas: HTMLCanvasElement) => {
     window.requestAnimationFrame(tick)
     particles.rotation.y = elapsedTime * 0.4 // 旋转
     particles.rotation.z = elapsedTime * 0.1 // 旋转
-
     
   }
   

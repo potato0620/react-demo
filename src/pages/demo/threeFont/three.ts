@@ -54,7 +54,7 @@ const initThree = async (el: HTMLCanvasElement) => {
   const font = await new Promise((resolve,reject) => {
     try {
       fontLoader.load(
-        '/public/threeFont/fonts/CozetteVector_Regular.json',
+        '/threeFont/fonts/CozetteVector_Regular.json',
         (font) => {
           console.log('font加载完毕', font);
           resolve(font)
@@ -65,7 +65,7 @@ const initThree = async (el: HTMLCanvasElement) => {
     }
   })
 
-  const matcapTexture = textureLoader.load('/public/textures/matcaps/8.png')
+  const matcapTexture = textureLoader.load('/textures/matcaps/8.png')
   // matcapTexture.generateMipmaps = false
 	// matcapTexture.minFilter = THREE.NearestFilter
   // matcapTexture.magFilter = THREE.NearestFilter

@@ -1,4 +1,5 @@
 import './index.scss'
+import { cn } from '@/utils'
 
 const FlexLayout: React.FC = () => {
   return (
@@ -31,6 +32,15 @@ const FlexLayout: React.FC = () => {
         <div className='item flex-[50%]  bg-dark-300'></div>
       </div>
       <div>添加overflow hidden 即可保持宽度与flex-1 一致</div>
+
+      <div
+        className={cn('w-[100px] h-[100px] bg-red-400', {
+          'color-red': true,
+          'bg-black': true
+        })}
+      >
+        className 合并测试
+      </div>
     </>
   )
 }
